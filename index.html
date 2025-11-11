@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Ambulance Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="logo">Smart Ambulance</div>
+  <div class="nav-buttons">
+    <button class="tab-btn active" onclick="showPanel('health')">Health</button>
+    <button class="tab-btn" onclick="showPanel('location')">Location</button>
+    <button class="tab-btn" onclick="showPanel('hospitals')">Hospitals</button>
+    <button class="tab-btn" onclick="showPanel('all')">All</button>
+  </div>
+</nav>
+
+<div class="alert-panel" id="alertPanel" style="display: none;">🚨 Emergency: Patient Oxygen Low!</div>
+
+<div class="dashboard-grid">
+
+  <div id="health" class="panel active">
+    <h2>Patient Health Data</h2>
+    ❤ Heart Rate: <span id="heartRate">N/A</span><br />
+    🩸 SpO₂: <span id="spo2">N/A</span><br />
+    🌡 Temperature: <span id="temp">N/A</span>
+  </div>
+
+  <div id="location" class="panel">
+    <h2>Ambulance Location</h2>
+    <iframe
+      src="https://www.google.com/maps/embed/v1/place?q=kalaaburagi&key=AIzaSyBfGUhoIMZ9HvWBPSLdi4tt8AIIavQqQoY"
+    ></iframe>
+  </div>
+
+  <div id="hospitals" class="panel">
+    <h2>Nearby Hospital Suggestions</h2>
+    <button class="search-btn" onclick="searchHospitals()">🔍 Search Nearest Hospitals</button>
+    <div id="hospitalList"></div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
